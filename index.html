@@ -3,8 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>Rainwater Games — free games &amp; board game tools</title>
-<meta name="description" content="Free phone games and board game score trackers by Jeff Rainwater. No app store needed: play in your browser, install to your home screen, works offline.">
+<meta name="description" content="Free phone games by Jeff Rainwater: Bridge Blitz (beta), Neon Gearstorm (alpha), Unicorn Flap-tastic! (alpha), plus board game score trackers. No app store needed: play in your browser, one-tap install to your home screen, works offline.">
 <meta name="theme-color" content="#070a16">
 <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="icons/favicon-192.png" sizes="192x192" type="image/png">
@@ -12,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rainwater Games">
 <meta property="og:title" content="Rainwater Games — free games &amp; board game tools">
-<meta property="og:description" content="Bridge Blitz, a squad-runner shooter (beta), plus score trackers for Flip 7 and Twilight Imperium 4. Free, no app store, works offline.">
+<meta property="og:description" content="Bridge Blitz (beta), Neon Gearstorm (alpha) and Unicorn Flap-tastic! (alpha), plus score trackers for Flip 7 and Twilight Imperium 4. Free, no app store, works offline.">
 <meta property="og:url" content="https://rainwatergames.github.io/">
 <meta property="og:image" content="https://rainwatergames.github.io/shots/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -41,12 +44,26 @@ main{padding-bottom:30px}
 .apps{display:grid;gap:22px}
 .app{position:relative;background:linear-gradient(180deg,#141a33,#0d1124);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 20px 60px -30px #000}
 .app:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--a1),var(--a2))}
-.app.bb{--a1:#38bdf8;--a2:#f97316}.app.f7{--a1:#facc15;--a2:#fb7185}.app.ti{--a1:#a78bfa;--a2:#22d3ee}
+.app.bb{--a1:#38bdf8;--a2:#f97316}.app.ng{--a1:#22d3ee;--a2:#d946ef}.app.uf{--a1:#f472b6;--a2:#facc15}.app.f7{--a1:#facc15;--a2:#fb7185}.app.ti{--a1:#a78bfa;--a2:#22d3ee}
 .head{display:flex;gap:14px;align-items:center;padding:20px 18px 6px}
 .head img{width:60px;height:60px;border-radius:16px;flex:none;box-shadow:0 6px 20px -6px var(--a1)}
 .head h2{margin:0;font-size:1.4rem;line-height:1.15;font-weight:800}
 .meta{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin-top:5px;font-size:.8rem;color:var(--mut)}
-.badge{font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:6px;background:linear-gradient(90deg,#f97316,#ef4444);color:#fff}
+.badge{font-size:.72rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:7px;background:linear-gradient(90deg,#f97316,#ef4444);color:#fff;box-shadow:0 0 14px -2px #f9731699}
+.badge.alpha{background:linear-gradient(90deg,#d946ef,#8b5cf6);box-shadow:0 0 14px -2px #d946ef99}
+.bnote{color:#dbe2ff;font-weight:600}
+.app.uf .strip img{background:#ffd6f3}
+/* one-tap download buttons */
+.dlwrap{padding:14px 18px 2px}.dls{display:grid;gap:10px;margin:0}
+.dl{position:relative;display:flex;align-items:center;gap:12px;min-height:58px;padding:10px 16px;border-radius:16px;text-decoration:none;color:#eef2ff;background:#ffffff0d;border:1px solid #ffffff2a;transition:transform .12s}
+.dl:active{transform:scale(.97)}
+.dl .ic{flex:none;width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+.dl b{display:block;font-size:1.06rem;font-weight:900;letter-spacing:.01em}
+.dl small{display:block;font-size:.78rem;color:#aab3d6}.dl small .v{font-family:ui-monospace,Menlo,Consolas,monospace}
+.dl.mine{order:-1;min-height:66px;color:#0b0f1e;border:0;background:linear-gradient(90deg,var(--a1),var(--a2));box-shadow:0 10px 30px -10px var(--a2)}
+.dl.mine small{color:#0b0f1ecc}
+.dl.mine:after{content:"Your device";position:absolute;top:-9px;right:12px;font-size:.64rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:99px;background:#fff;color:#0b0f1e}
+.play.web{min-height:46px;font-size:.95rem;color:#eef2ff;background:transparent;border:1px solid #ffffff33;box-shadow:none}
 .ver{font-family:ui-monospace,Menlo,Consolas,monospace;color:#dbe2ff}
 /* gallery */
 .strip{display:flex;align-items:flex-start;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:14px 18px 10px;scroll-padding:0 18px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:#ffffff33 transparent}
@@ -65,15 +82,6 @@ main{padding-bottom:30px}
 .play{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:56px;border-radius:16px;font-size:1.15rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:#0b0f1e;background:linear-gradient(90deg,var(--a1),var(--a2));box-shadow:0 10px 30px -10px var(--a2);transition:transform .12s}
 .play:active{transform:scale(.97)}
 .play svg{width:20px;height:20px}
-/* install tip */
-.install{margin-top:26px;background:#0f1428;border:1px solid var(--line);border-radius:20px;padding:18px}
-.install h3{margin:0 0 4px;font-size:1.1rem}
-.install p{margin:0 0 12px;color:var(--mut);font-size:.92rem}
-.steps{display:grid;gap:10px}
-.step{display:flex;gap:12px;align-items:flex-start;background:#ffffff08;border-radius:14px;padding:12px}
-.step .os{flex:none;font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:6px;background:#22d3ee22;color:var(--c1)}
-.step.ios .os{background:#f472b622;color:var(--c3)}
-.step div{font-size:.92rem}
 footer{text-align:center;color:#6f7aa3;font-size:.8rem;padding:26px 18px 40px}
 /* lightbox */
 dialog{border:0;padding:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh;margin:0}
@@ -86,10 +94,11 @@ dialog::backdrop{background:#000d;-webkit-backdrop-filter:blur(6px);backdrop-fil
 @media (min-width:760px){
   header.hero{padding:90px 0 60px}
   .apps{grid-template-columns:1fr}
-  .app{display:grid;grid-template-columns:1.25fr 1fr;grid-template-areas:"head head" "strip body" "hint body"}
+  .app{display:grid;grid-template-columns:1.25fr 1fr;grid-template-areas:"head head" "dl dl" "strip body" "hint body"}
+  .dlwrap{grid-area:dl;padding:14px 26px 0}.dls{grid-template-columns:repeat(3,1fr)}.dl.mine{order:0}
   .head{grid-area:head;padding:24px 26px 4px}.strip{grid-area:strip;padding:16px 26px 8px}.hint{grid-area:hint;padding:0 26px 20px}.body{grid-area:body;padding:16px 26px 24px;align-self:center}
   .strip button{width:31%}
-  .steps{grid-template-columns:1fr 1fr}
+
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
@@ -104,7 +113,7 @@ dialog::backdrop{background:#000d;-webkit-backdrop-filter:blur(6px);backdrop-fil
     <div class="pills">
       <span class="pill">📱 Made for phones</span>
       <span class="pill">⚡ Works offline</span>
-      <span class="pill">🏪 No app store needed</span>
+      <span class="pill">📲 One-tap install</span>
     </div>
   </div>
 </header>
@@ -112,17 +121,9 @@ dialog::backdrop{background:#000d;-webkit-backdrop-filter:blur(6px);backdrop-fil
 <main class="wrap">
   <div class="apps" id="apps"></div>
 
-  <section class="install" id="install">
-    <h3>📲 Install any app to your home screen</h3>
-    <p>No app store needed — install from your browser. Open the app first, then:</p>
-    <div class="steps">
-      <div class="step"><span class="os">Android</span><div>Tap the <b>⋮</b> menu in Chrome and choose <b>Add to Home screen</b> (or <b>Install app</b>).</div></div>
-      <div class="step ios"><span class="os">iPhone</span><div>In Safari, tap <b>Share</b> <span aria-hidden="true">⎋</span> then <b>Add to Home Screen</b>.</div></div>
-    </div>
-  </section>
 </main>
 
-<footer>© Rainwater Games · Jeff Rainwater. Fan-made trackers; not affiliated with the publishers of Flip 7 or Twilight Imperium.</footer>
+<footer>© 2026 Rainwater Games (Jeff Rainwater). All rights reserved.<br><span style="font-size:.72rem">Fan-made trackers; not affiliated with the publishers of Flip 7 or Twilight Imperium.</span></footer>
 
 <dialog id="lb" aria-label="Screenshot viewer">
   <div class="lb">
@@ -135,19 +136,30 @@ dialog::backdrop{background:#000d;-webkit-backdrop-filter:blur(6px);backdrop-fil
 </dialog>
 
 <script>
-/* ===== Bridge Blitz link: change these two lines when it moves =====
-   e.g. BRIDGE_BLITZ_URL = 'https://rainwatergames.github.io/bridge-blitz/' */
+/* Version shown on each card = live <URL>/version.json ({"v":"x.y.z"}), fetched with cache:'no-store' at load.
+   The `version` values below are only fallbacks if that fetch fails (offline, etc.). */
 var BRIDGE_BLITZ_URL = 'https://rainwatergames.github.io/bridge-blitz/';
-var BRIDGE_BLITZ_VERSION = '5.8.1'; // fallback only; the live version is read from <URL>/sw.js (CACHE name)
+var NEON_GEARSTORM_URL = 'https://rainwatergames.github.io/neon-gearstorm/';
+var UNICORN_URL = 'https://rainwatergames.github.io/unicorn-flaptastic/';
 
 /* Sizes = total bytes of each app's deployed files (excluding screenshots/.git), measured Oct 27, 2026. */
 var APPS = [
-  { id: 'bb', name: 'Bridge Blitz', url: BRIDGE_BLITZ_URL, icon: 'icons/bridge-blitz.png', badge: 'Beta · In development',
-    version: (/^v/.test(BRIDGE_BLITZ_VERSION) ? '' : 'v') + BRIDGE_BLITZ_VERSION, bytes: 1226768, cta: 'Play',
+  { id: 'bb', name: 'Bridge Blitz', url: BRIDGE_BLITZ_URL, icon: 'icons/bridge-blitz.png', badge: 'BETA', badgeClass: 'beta', badgeNote: 'Beta testing', game: true,
+    version: 'v5.8.1', bytes: 1226768, cta: 'Play',
     desc: 'A 3D crowd-runner shooter built for your phone. Steer your squad with one thumb, pick the right gates to grow your army, and blast through zombie hordes on the way to a giant boss at the end of every level.\n\nFight 13 different bosses across collapsing bridges, a dense jungle, an ancient temple and a volcanic Magma Chamber, including the Kraken, a giant Anaconda, a Silverback, the Jade Colossus and the Lava Golem. Each boss has its own attacks to dodge, from lightning strikes to tail swipes.\n\nEarn coins every run and spend them in the Armory on permanent upgrades like squad size, fire rate and damage, plus new weapons. Recruit allies along the way: snipers, medics, a War Elephant, and a frozen giant you can break free to smash through the horde.\n\nUnlock 40 achievements that each pay out coins, from your first boss kill to a flawless fight. Stuck on a level? Every loss earns coins toward a Skip. Beat all 13 levels and the game loops harder, and your squad changes color each time through so everyone can see how far you have made it.\n\nNew: the lava-filled Magma Chamber is in, with the Lava Golem boss, now restyled as a glowing crimson castle, and every level has its own music. Coming next: bonus coin stages and many more upgrades.',
     chips: ['3D action', 'One-thumb controls', '13 bosses', '40 achievements', 'Armory upgrades', 'Recruit allies', 'Bridge · Jungle · Temple · Magma'],
     shots: [['bridge-blitz-kraken', 'Kraken boss on the bridge'], ['bridge-blitz-gates', 'Pick the right gate to grow your squad'],
             ['bridge-blitz-anaconda', 'Anaconda boss in the jungle'], ['bridge-blitz-jade-colossus', 'The Jade Colossus in the temple']] },
+  { id: 'ng', name: 'Neon Gearstorm', url: NEON_GEARSTORM_URL, icon: 'icons/neon-gearstorm.png', badge: 'ALPHA', badgeClass: 'alpha', badgeNote: 'Alpha testing', game: true,
+    version: 'v1.1.2', bytes: 152036, cta: 'Play',
+    desc: 'A neon steampunk shoot-\'em-up for your phone. Drag to fly your fighter through glowing bullet storms, power up your weapons, and drop screen-clearing bombs when things get hairy.\n\nBlast through 3 stages, each ending in a huge multi-part boss, from the Iron Foundry to Stage 3: a high-speed rail chase after an armored steampunk train, with track switches, a pitch-dark tunnel and the Iron Locomotive boss.\n\nSpend salvage in the Hangar on permanent upgrades like Overdrive Core, Option Pods and Homing Missiles, all to a pounding synth-metal soundtrack. Early alpha: more stages are coming.',
+    chips: ['Shoot-\'em-up', '3 stages', 'Huge bosses', 'Hangar upgrades', 'Bombs', 'Synth-metal music'],
+    shots: [['ng-stage3', 'Stage 3: the rail chase'], ['ng-boss3', 'Iron Locomotive boss: core exposed'], ['ng-switch', 'Pick a track: risk or safe'], ['ng-tunnel', 'The dark tunnel']] },
+  { id: 'uf', name: 'Unicorn Flap-tastic!', url: UNICORN_URL, icon: 'icons/unicorn-flaptastic.png', badge: 'ALPHA', badgeClass: 'alpha', badgeNote: 'Alpha testing', game: true,
+    version: 'v0.2', bytes: 207401, cta: 'Play',
+    desc: 'An over-the-top silly, psychedelic rainbow unicorn flapping game. Tap anywhere to flap your unicorn through rainbow pillars, grab gems and shinies, and trigger a RAINBOW FRENZY.\n\nExpect the unexpected: tactical rainbow deploys, upside-down worlds, weirdos, rainbow nukes and plenty of rude noises. Very early alpha, very silly.',
+    chips: ['One-tap flapping', 'Rainbow Frenzy', 'Psychedelic chaos', 'Over-the-top silly'],
+    shots: [['uf-title', 'Title screen'], ['uf-nuke', 'Tactical rainbow deploy!'], ['uf-weirdos', 'What the...'], ['uf-upside', 'Upside-down world']] },
   { id: 'f7', name: 'Flip 7 Score Tracker', url: 'flip7-score/', icon: 'icons/flip7.png', version: 'v1.0',
     bytes: 211703, cta: 'Open',
     desc: 'A companion app for the Flip 7 card game, made to use right at the table while you play the real cards. Skip the pencil, paper and mental math: tap the cards each player flipped and it does all the math for you, including x2 cards, + bonus cards, busts and the 15-point Flip 7 bonus.\n\nIt keeps a running total and round history for every player and tracks the race to 200, so nobody has to add up scores or argue about the numbers. More playing, less counting.',
@@ -165,14 +177,25 @@ function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '
 function cacheToVersion(c) { var m = /-v(\d+(?:-\d+)*)$/.exec(c || ''); if (!m) return null; var p = m[1].split('-'); if (p.length < 2) p.push('0'); return 'v' + p.join('.'); }
 function abs(u) { return new URL(u, location.href).href; }
 
+/* Download buttons -> <game>/?install=1, which opens that game's own one-tap install button / iPhone overlay. */
+var UA = navigator.userAgent, MY = (/iPhone|iPad|iPod/.test(UA) || (/Macintosh/.test(UA) && navigator.maxTouchPoints > 1)) ? 'iphone' : /Android/.test(UA) ? 'android' : 'pc';
+var PLATS = [['android', 'Android', '🤖'], ['iphone', 'iPhone', '🍎'], ['pc', 'PC', '💻']];
+function dlButtons(a) {
+  return '<div class="dls">' + PLATS.map(function (p) {
+    return '<a class="dl' + (p[0] === MY ? ' mine' : '') + '" data-plat="' + p[0] + '" href="' + esc(a.url) + '?install=1"><span class="ic" aria-hidden="true">' + p[2] + '</span>' +
+      '<span><b>Download for ' + p[1] + '</b><small><span class="v" data-dlv>' + esc(a.version) + '</span> · free, installs in one tap</small></span></a>';
+  }).join('') + '</div>';
+}
+
 var root = document.getElementById('apps');
 APPS.forEach(function (a) {
   var el = document.createElement('article');
   el.className = 'app ' + a.id; el.id = a.id;
   el.innerHTML =
     '<div class="head"><img src="' + a.icon + '" alt="" width="60" height="60"><div><h2>' + esc(a.name) + '</h2>' +
-      '<div class="meta">' + (a.badge ? '<span class="badge">' + esc(a.badge) + '</span>' : '') +
+      '<div class="meta">' + (a.badge ? '<span class="badge ' + (a.badgeClass || '') + '">' + esc(a.badge) + '</span><span class="bnote">' + esc(a.badgeNote || '') + '</span>' : '') +
       '<span class="ver" data-ver>' + esc(a.version) + '</span><span data-upd hidden></span></div></div></div>' +
+    (a.game ? '<div class="dlwrap">' + dlButtons(a) + '</div>' : '') +
     '<div class="strip" role="list" aria-label="' + esc(a.name) + ' screenshots">' + a.shots.map(function (s, i) {
       return '<button type="button" role="listitem" data-i="' + i + '" aria-label="Enlarge: ' + esc(s[1]) + '"><img src="shots/' + s[0] + '.webp" alt="' + esc(s[1]) + '" loading="' + (a.id === 'bb' ? 'eager' : 'lazy') + '" width="390" height="844"></button>';
     }).join('') + '</div>' +
@@ -180,38 +203,20 @@ APPS.forEach(function (a) {
     '<div class="body">' + a.desc.split('\n\n').map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('') + '<ul class="chips">' + a.chips.map(function (c) { return '<li>' + esc(c) + '</li>'; }).join('') + '</ul>' +
       '<div class="facts"><div class="fact"><b>' + fmtSize(a.bytes) + '</b><span>Download</span></div>' +
       '<div class="fact"><b>✓</b><span>Works offline</span></div><div class="fact"><b>Free</b><span>No app store</span></div></div>' +
-      '<a class="play" href="' + esc(a.url) + '">' + esc(a.cta) +
+      '<a class="play' + (a.game ? ' web' : '') + '" href="' + esc(a.url) + '">' + esc(a.game ? 'Play in browser' : a.cta) +
       ' <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></a></div>';
   root.appendChild(el);
   el.querySelectorAll('.strip button').forEach(function (b) { b.onclick = function () { openLb(a, +b.dataset.i); }; });
-  readVersion(a, el);
+  if (a.game) readVersion(a, el);
 });
 
-/* Read the live version from each app's sw.js CACHE name (e.g. crowd-runner-v5-6-6 -> v5.6.6).
-   Bridge Blitz is on another origin without CORS, so its sw.js is loaded as a plain script inside a hidden
-   same-origin iframe and the CACHE global is read from there. */
-function setVer(el, v, date) {
-  if (v) el.querySelector('[data-ver]').textContent = v;
-  if (date && !isNaN(date)) { var u = el.querySelector('[data-upd]'); u.textContent = 'Updated ' + date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }); u.hidden = false; }
-}
+/* Live version: <URL>/version.json -> {"v":"5.8.1"}. All game hosts send Access-Control-Allow-Origin: *.
+   cache:'no-store' (+ a timestamp) so a stale copy is never shown; falls back to the static `version`. */
+function setVer(el, v) { if (!v) return; v = (/^v/i.test(v) ? '' : 'v') + v; el.querySelectorAll('[data-ver],[data-dlv]').forEach(function (n) { n.textContent = v; }); }
 function readVersion(a, el) {
-  var sw = abs(a.url.replace(/\/?$/, '/') + 'sw.js');
-  if (new URL(sw).origin === location.origin) {
-    fetch(sw, { cache: 'no-cache' }).then(function (r) {
-      if (!r.ok) return;
-      var lm = new Date(r.headers.get('last-modified'));
-      return r.text().then(function (t) { var m = /CACHE\s*=\s*['"]([^'"]+)/.exec(t); setVer(el, m && cacheToVersion(m[1]), lm); });
-    }).catch(function () {});
-  } else {
-    var f = document.createElement('iframe');
-    f.hidden = true; f.setAttribute('aria-hidden', 'true'); f.tabIndex = -1;
-    f.srcdoc = '<script src="' + sw.replace(/"/g, '&quot;') + '?v=' + Date.now() + '"><\/script>';
-    f.onload = function () {
-      try { setVer(el, cacheToVersion(f.contentWindow.CACHE)); } catch (e) {}
-      setTimeout(function () { f.remove(); }, 0);
-    };
-    document.body.appendChild(f);
-  }
+  var u = abs(a.url.replace(/\/?$/, '/') + 'version.json') + '?t=' + Date.now();
+  fetch(u, { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (j) { if (j && (j.v || j.version)) setVer(el, String(j.v || j.version)); }).catch(function () {});
 }
 
 /* lightbox */
