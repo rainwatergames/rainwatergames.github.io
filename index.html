@@ -144,8 +144,8 @@ var BRIDGE_BLITZ_VERSION = 'v5.7.0'; // fallback only; the live version is read 
 var APPS = [
   { id: 'bb', name: 'Bridge Blitz', url: BRIDGE_BLITZ_URL, icon: 'icons/bridge-blitz.png', badge: 'Beta · In development',
     version: BRIDGE_BLITZ_VERSION, bytes: 1180660, cta: 'Play',
-    desc: 'A 3D crowd-runner shooter for your phone. Lead your squad through + and − gates to grow your army, blast through zombie hordes, and take down giant bosses like the Kraken, an Anaconda and the Jade Colossus across bridge, jungle and temple levels.',
-    chips: ['3D action', 'One-thumb controls', 'Boss fights', 'Bridge · Jungle · Temple'],
+    desc: 'A 3D crowd-runner shooter built for your phone. Steer your squad with one thumb, pick the right gates to grow your army, and blast through zombie hordes on the way to a giant boss at the end of every level.\n\nFight 12 different bosses across collapsing bridges, a dense jungle and an ancient temple, including the Kraken, a giant Anaconda, a Silverback and the Jade Colossus. Each boss has its own attacks to dodge, from lightning strikes to tail swipes.\n\nEarn coins every run and spend them in the Armory on permanent upgrades like squad size, fire rate and damage, plus new weapons. Recruit allies along the way: snipers, medics, a War Elephant, and a frozen giant you can break free to smash through the horde.\n\nUnlock 30 achievements that each pay out coins, from your first boss kill to a flawless fight. Stuck on a level? Every loss earns coins toward a Skip. Beat all 12 levels and the game loops harder, and your squad changes color each time through so everyone can see how far you have made it.\n\nMore is on the way: a lava-filled Magma Chamber with a Lava Golem boss, bonus coin stages, and many more upgrades.',
+    chips: ['3D action', 'One-thumb controls', '12 bosses', '30 achievements', 'Armory upgrades', 'Recruit allies', 'Bridge · Jungle · Temple'],
     shots: [['bridge-blitz-kraken', 'Kraken boss on the bridge'], ['bridge-blitz-gates', 'Pick the right gate to grow your squad'],
             ['bridge-blitz-anaconda', 'Anaconda boss in the jungle'], ['bridge-blitz-jade-colossus', 'The Jade Colossus in the temple']] },
   { id: 'f7', name: 'Flip 7 Score Tracker', url: 'flip7-score/', icon: 'icons/flip7.png', version: 'v1.0',
@@ -177,7 +177,7 @@ APPS.forEach(function (a) {
       return '<button type="button" role="listitem" data-i="' + i + '" aria-label="Enlarge: ' + esc(s[1]) + '"><img src="shots/' + s[0] + '.webp" alt="' + esc(s[1]) + '" loading="' + (a.id === 'bb' ? 'eager' : 'lazy') + '" width="390" height="844"></button>';
     }).join('') + '</div>' +
     '<div class="hint">Swipe for more · tap to enlarge</div>' +
-    '<div class="body"><p>' + esc(a.desc) + '</p><ul class="chips">' + a.chips.map(function (c) { return '<li>' + esc(c) + '</li>'; }).join('') + '</ul>' +
+    '<div class="body">' + a.desc.split('\n\n').map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('') + '<ul class="chips">' + a.chips.map(function (c) { return '<li>' + esc(c) + '</li>'; }).join('') + '</ul>' +
       '<div class="facts"><div class="fact"><b>' + fmtSize(a.bytes) + '</b><span>Download</span></div>' +
       '<div class="fact"><b>✓</b><span>Works offline</span></div><div class="fact"><b>Free</b><span>No app store</span></div></div>' +
       '<a class="play" href="' + esc(a.url) + '">' + esc(a.cta) +
