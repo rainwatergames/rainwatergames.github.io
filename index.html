@@ -1,18 +1,232 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Rainwater Games</title><meta name="description" content="Free games and board game tools by Jeff Rainwater">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Rainwater Games — free games &amp; board game tools</title>
+<meta name="description" content="Free phone games and board game score trackers by Jeff Rainwater. No app store needed: play in your browser, install to your home screen, works offline.">
+<meta name="theme-color" content="#070a16">
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="icons/favicon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rainwater Games">
+<meta property="og:title" content="Rainwater Games — free games &amp; board game tools">
+<meta property="og:description" content="Bridge Blitz, a squad-runner shooter (beta), plus score trackers for Flip 7 and Twilight Imperium 4. Free, no app store, works offline.">
+<meta property="og:url" content="https://rainwatergames.github.io/">
+<meta property="og:image" content="https://rainwatergames.github.io/shots/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
+<meta property="og:image:alt" content="Bridge Blitz: a blue squad faces a giant Kraken on a bridge">
+<meta name="twitter:card" content="summary_large_image">
 <style>
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:linear-gradient(160deg,#0f172a,#1e3a5f);color:#f1f5f9;min-height:100vh}
-main{max-width:560px;margin:0 auto;padding:40px 20px}
-h1{margin:0 0 4px;font-size:2.2rem}.sub{color:#94a3b8;margin:0 0 28px}
-a.card{display:flex;gap:16px;align-items:center;background:#ffffff14;border:1px solid #ffffff22;border-radius:16px;padding:16px;margin-bottom:14px;color:inherit;text-decoration:none}
-a.card:active{transform:scale(.98)}a.card img,.emoji{width:64px;height:64px;border-radius:14px;flex:none}
-.emoji{display:flex;align-items:center;justify-content:center;font-size:40px;background:#f59e0b}
-h2{margin:0 0 4px;font-size:1.2rem}p{margin:0;color:#cbd5e1;font-size:.95rem}
-.tip{margin-top:28px;font-size:.9rem;color:#94a3b8;line-height:1.5}
-</style></head><body><main>
-<h1>Rainwater Games</h1><p class="sub">Free games and board game tools. Tap one to open it.</p>
-<a class="card" href="https://77173d93c6b84531.flypod.page"><div class="emoji">🪖</div><div><h2>Bridge Blitz</h2><p>Lead your squad through gates, zombies and giant bosses. (In development)</p></div></a>
-<a class="card" href="flip7-score/"><img src="icons/flip7.png" alt=""><div><h2>Flip 7 Score Tracker</h2><p>Keep score for Flip 7 with your group.</p></div></a>
-<a class="card" href="ti4-score/"><img src="icons/ti4.png" alt=""><div><h2>TI4 Galactic Score Board</h2><p>Victory points and objectives for Twilight Imperium 4.</p></div></a>
-<p class="tip">To install an app on your phone, open it, then use your browser's menu and choose <b>Add to Home screen</b> (Android) or <b>Share › Add to Home Screen</b> (iPhone).</p>
-</main></body></html>
+:root{--bg:#070a16;--panel:#0f1428;--line:#ffffff1a;--txt:#eef2ff;--mut:#9aa4c7;--c1:#22d3ee;--c2:#8b5cf6;--c3:#f472b6}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.45;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+/* hero */
+header.hero{position:relative;overflow:hidden;padding:56px 0 40px;text-align:center;isolation:isolate}
+header.hero:before{content:"";position:absolute;inset:-40% -20% auto;height:150%;z-index:-2;background:radial-gradient(40% 40% at 25% 35%,#8b5cf655,transparent 70%),radial-gradient(35% 35% at 75% 30%,#22d3ee44,transparent 70%),radial-gradient(30% 30% at 55% 70%,#f472b633,transparent 70%)}
+header.hero:after{content:"";position:absolute;inset:0;z-index:-1;opacity:.35;background-image:repeating-linear-gradient(105deg,transparent 0 22px,#9fdcff22 22px 23px,transparent 23px 47px);-webkit-mask-image:linear-gradient(#000,transparent 85%);mask-image:linear-gradient(#000,transparent 85%)}
+.logo{width:72px;height:72px;filter:drop-shadow(0 6px 24px #22d3ee66)}
+.since{display:inline-block;margin:14px 0 10px;padding:5px 12px;border:1px solid var(--line);border-radius:99px;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);background:#ffffff08}
+h1{margin:0;font-size:clamp(2.6rem,12vw,5.2rem);line-height:.95;font-weight:900;letter-spacing:-.03em;text-transform:uppercase;background:linear-gradient(95deg,#fff 10%,var(--c1) 45%,var(--c2) 75%,var(--c3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.tag{margin:16px auto 0;max-width:30rem;font-size:1.08rem;color:#c9d1f3}
+.pills{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:22px}
+.pill{font-size:.82rem;padding:7px 12px;border-radius:99px;background:#ffffff0d;border:1px solid var(--line);color:#dbe2ff}
+/* cards */
+main{padding-bottom:30px}
+.apps{display:grid;gap:22px}
+.app{position:relative;background:linear-gradient(180deg,#141a33,#0d1124);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 20px 60px -30px #000}
+.app:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--a1),var(--a2))}
+.app.bb{--a1:#38bdf8;--a2:#f97316}.app.f7{--a1:#facc15;--a2:#fb7185}.app.ti{--a1:#a78bfa;--a2:#22d3ee}
+.head{display:flex;gap:14px;align-items:center;padding:20px 18px 6px}
+.head img{width:60px;height:60px;border-radius:16px;flex:none;box-shadow:0 6px 20px -6px var(--a1)}
+.head h2{margin:0;font-size:1.4rem;line-height:1.15;font-weight:800}
+.meta{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin-top:5px;font-size:.8rem;color:var(--mut)}
+.badge{font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:6px;background:linear-gradient(90deg,#f97316,#ef4444);color:#fff}
+.ver{font-family:ui-monospace,Menlo,Consolas,monospace;color:#dbe2ff}
+/* gallery */
+.strip{display:flex;align-items:flex-start;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:14px 18px 10px;scroll-padding:0 18px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:#ffffff33 transparent}
+.strip button{flex:0 0 auto;width:46%;max-width:190px;padding:0;border:0;background:none;cursor:zoom-in;scroll-snap-align:start;border-radius:16px}
+.strip img{display:block;width:100%;height:auto;aspect-ratio:390/844;object-fit:cover;border-radius:16px;border:1px solid var(--line);background:#1a2040}
+.strip button:focus-visible{outline:3px solid var(--a1);outline-offset:2px}
+.hint{padding:0 18px;font-size:.72rem;color:#6f7aa3}
+.body{padding:6px 18px 20px}
+.body p{margin:8px 0 12px;color:#cdd4f0}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 14px;padding:0;list-style:none}
+.chips li{font-size:.78rem;padding:5px 10px;border-radius:99px;background:#ffffff0c;border:1px solid var(--line)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 16px}
+.fact{background:#00000033;border:1px solid var(--line);border-radius:14px;padding:9px 10px;text-align:center}
+.fact b{display:block;font-size:1rem}
+.fact span{font-size:.7rem;color:var(--mut);text-transform:uppercase;letter-spacing:.06em}
+.play{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:56px;border-radius:16px;font-size:1.15rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:#0b0f1e;background:linear-gradient(90deg,var(--a1),var(--a2));box-shadow:0 10px 30px -10px var(--a2);transition:transform .12s}
+.play:active{transform:scale(.97)}
+.play svg{width:20px;height:20px}
+/* install tip */
+.install{margin-top:26px;background:#0f1428;border:1px solid var(--line);border-radius:20px;padding:18px}
+.install h3{margin:0 0 4px;font-size:1.1rem}
+.install p{margin:0 0 12px;color:var(--mut);font-size:.92rem}
+.steps{display:grid;gap:10px}
+.step{display:flex;gap:12px;align-items:flex-start;background:#ffffff08;border-radius:14px;padding:12px}
+.step .os{flex:none;font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:6px;background:#22d3ee22;color:var(--c1)}
+.step.ios .os{background:#f472b622;color:var(--c3)}
+.step div{font-size:.92rem}
+footer{text-align:center;color:#6f7aa3;font-size:.8rem;padding:26px 18px 40px}
+/* lightbox */
+dialog{border:0;padding:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh;margin:0}
+dialog::backdrop{background:#000d;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.lb{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:44px 8px 20px}
+.lb img{max-width:100%;max-height:100%;border-radius:18px;box-shadow:0 20px 80px #000}
+.lb button{position:absolute;border:0;background:#ffffff1f;color:#fff;width:46px;height:46px;border-radius:50%;font-size:1.5rem;cursor:pointer}
+.lb .x{top:10px;right:10px}.lb .prev{left:8px;top:50%}.lb .next{right:8px;top:50%}
+.lb .cap{position:absolute;bottom:6px;left:0;right:0;text-align:center;font-size:.85rem;color:#cdd4f0}
+@media (min-width:760px){
+  header.hero{padding:90px 0 60px}
+  .apps{grid-template-columns:1fr}
+  .app{display:grid;grid-template-columns:1.25fr 1fr;grid-template-areas:"head head" "strip body" "hint body"}
+  .head{grid-area:head;padding:24px 26px 4px}.strip{grid-area:strip;padding:16px 26px 8px}.hint{grid-area:hint;padding:0 26px 20px}.body{grid-area:body;padding:16px 26px 24px;align-self:center}
+  .strip button{width:31%}
+  .steps{grid-template-columns:1fr 1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <img class="logo" src="icons/favicon.svg" alt="" width="72" height="72">
+    <div class="since">Indie games · since 2011</div>
+    <h1>Rainwater<br>Games</h1>
+    <p class="tag">Small, fast, free games and game-night tools by Jeff Rainwater. Tap, play, done.</p>
+    <div class="pills">
+      <span class="pill">📱 Made for phones</span>
+      <span class="pill">⚡ Works offline</span>
+      <span class="pill">🏪 No app store needed</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="apps" id="apps"></div>
+
+  <section class="install" id="install">
+    <h3>📲 Install any app to your home screen</h3>
+    <p>No app store needed — install from your browser. Open the app first, then:</p>
+    <div class="steps">
+      <div class="step"><span class="os">Android</span><div>Tap the <b>⋮</b> menu in Chrome and choose <b>Add to Home screen</b> (or <b>Install app</b>).</div></div>
+      <div class="step ios"><span class="os">iPhone</span><div>In Safari, tap <b>Share</b> <span aria-hidden="true">⎋</span> then <b>Add to Home Screen</b>.</div></div>
+    </div>
+  </section>
+</main>
+
+<footer>© Rainwater Games · Jeff Rainwater. Fan-made trackers; not affiliated with the publishers of Flip 7 or Twilight Imperium.</footer>
+
+<dialog id="lb" aria-label="Screenshot viewer">
+  <div class="lb">
+    <img id="lbImg" alt="">
+    <button class="x" type="button" aria-label="Close">×</button>
+    <button class="prev" type="button" aria-label="Previous">‹</button>
+    <button class="next" type="button" aria-label="Next">›</button>
+    <div class="cap" id="lbCap"></div>
+  </div>
+</dialog>
+
+<script>
+/* ===== Bridge Blitz link: change these two lines when it moves =====
+   e.g. BRIDGE_BLITZ_URL = 'https://rainwatergames.github.io/bridge-blitz/' */
+var BRIDGE_BLITZ_URL = 'https://77173d93c6b84531.flypod.page/';
+var BRIDGE_BLITZ_VERSION = 'v5.7.0'; // fallback only; the live version is read from <URL>/sw.js (CACHE name)
+
+/* Sizes = total bytes of each app's deployed files (excluding screenshots/.git), measured Oct 27, 2026. */
+var APPS = [
+  { id: 'bb', name: 'Bridge Blitz', url: BRIDGE_BLITZ_URL, icon: 'icons/bridge-blitz.png', badge: 'Beta · In development',
+    version: BRIDGE_BLITZ_VERSION, bytes: 1180660, cta: 'Play',
+    desc: 'A 3D crowd-runner shooter for your phone. Lead your squad through + and − gates to grow your army, blast through zombie hordes, and take down giant bosses like the Kraken, an Anaconda and the Jade Colossus across bridge, jungle and temple levels.',
+    chips: ['3D action', 'One-thumb controls', 'Boss fights', 'Bridge · Jungle · Temple'],
+    shots: [['bridge-blitz-kraken', 'Kraken boss on the bridge'], ['bridge-blitz-gates', 'Pick the right gate to grow your squad'],
+            ['bridge-blitz-anaconda', 'Anaconda boss in the jungle'], ['bridge-blitz-jade-colossus', 'The Jade Colossus in the temple']] },
+  { id: 'f7', name: 'Flip 7 Score Tracker', url: 'flip7-score/', icon: 'icons/flip7.png', version: 'v1.0',
+    bytes: 211703, cta: 'Open',
+    desc: 'Keep score for Flip 7 without pencil and paper. Tap the cards each player flipped and it does the math — x2, +bonus cards, busts and the Flip 7 bonus — then tracks the race to 200.',
+    chips: ['Tap cards to score', 'Busts & bonuses', 'Round history', 'Undo'],
+    shots: [['flip7-round', 'Enter a hand by tapping cards'], ['flip7-scores', 'Running totals and round history'], ['flip7-leader', 'Who is closest to 200']] },
+  { id: 'ti', name: 'TI4 Galactic Score Board', url: 'ti4-score/', icon: 'icons/ti4.png', version: 'v1.0',
+    bytes: 709786, cta: 'Open',
+    desc: 'A victory-point board for Twilight Imperium 4. Reveal public objectives, tap who scored them, track secrets and other points, and see the whole table on one score track.',
+    chips: ['3–8 players', 'Public objectives built in', 'Prophecy of Kings', 'Undo'],
+    shots: [['ti4-board', 'Score track and leaderboard'], ['ti4-objectives', 'Tap who scored each objective'], ['ti4-setup', 'Quick game setup with factions']] }
+];
+
+function fmtSize(b) { return b >= 1e6 ? (b / 1e6).toFixed(1) + ' MB' : Math.round(b / 1e3) + ' KB'; }
+function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+function cacheToVersion(c) { var m = /-v(\d+(?:-\d+)*)$/.exec(c || ''); if (!m) return null; var p = m[1].split('-'); if (p.length < 2) p.push('0'); return 'v' + p.join('.'); }
+function abs(u) { return new URL(u, location.href).href; }
+
+var root = document.getElementById('apps');
+APPS.forEach(function (a) {
+  var el = document.createElement('article');
+  el.className = 'app ' + a.id; el.id = a.id;
+  el.innerHTML =
+    '<div class="head"><img src="' + a.icon + '" alt="" width="60" height="60"><div><h2>' + esc(a.name) + '</h2>' +
+      '<div class="meta">' + (a.badge ? '<span class="badge">' + esc(a.badge) + '</span>' : '') +
+      '<span class="ver" data-ver>' + esc(a.version) + '</span><span data-upd hidden></span></div></div></div>' +
+    '<div class="strip" role="list" aria-label="' + esc(a.name) + ' screenshots">' + a.shots.map(function (s, i) {
+      return '<button type="button" role="listitem" data-i="' + i + '" aria-label="Enlarge: ' + esc(s[1]) + '"><img src="shots/' + s[0] + '.webp" alt="' + esc(s[1]) + '" loading="' + (a.id === 'bb' ? 'eager' : 'lazy') + '" width="390" height="844"></button>';
+    }).join('') + '</div>' +
+    '<div class="hint">Swipe for more · tap to enlarge</div>' +
+    '<div class="body"><p>' + esc(a.desc) + '</p><ul class="chips">' + a.chips.map(function (c) { return '<li>' + esc(c) + '</li>'; }).join('') + '</ul>' +
+      '<div class="facts"><div class="fact"><b>' + fmtSize(a.bytes) + '</b><span>Download</span></div>' +
+      '<div class="fact"><b>✓</b><span>Works offline</span></div><div class="fact"><b>Free</b><span>No app store</span></div></div>' +
+      '<a class="play" href="' + esc(a.url) + '">' + esc(a.cta) +
+      ' <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></a></div>';
+  root.appendChild(el);
+  el.querySelectorAll('.strip button').forEach(function (b) { b.onclick = function () { openLb(a, +b.dataset.i); }; });
+  readVersion(a, el);
+});
+
+/* Read the live version from each app's sw.js CACHE name (e.g. crowd-runner-v5-6-6 -> v5.6.6).
+   Bridge Blitz is on another origin without CORS, so its sw.js is loaded as a plain script inside a hidden
+   same-origin iframe and the CACHE global is read from there. */
+function setVer(el, v, date) {
+  if (v) el.querySelector('[data-ver]').textContent = v;
+  if (date && !isNaN(date)) { var u = el.querySelector('[data-upd]'); u.textContent = 'Updated ' + date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }); u.hidden = false; }
+}
+function readVersion(a, el) {
+  var sw = abs(a.url.replace(/\/?$/, '/') + 'sw.js');
+  if (new URL(sw).origin === location.origin) {
+    fetch(sw, { cache: 'no-cache' }).then(function (r) {
+      if (!r.ok) return;
+      var lm = new Date(r.headers.get('last-modified'));
+      return r.text().then(function (t) { var m = /CACHE\s*=\s*['"]([^'"]+)/.exec(t); setVer(el, m && cacheToVersion(m[1]), lm); });
+    }).catch(function () {});
+  } else {
+    var f = document.createElement('iframe');
+    f.hidden = true; f.setAttribute('aria-hidden', 'true'); f.tabIndex = -1;
+    f.srcdoc = '<script src="' + sw.replace(/"/g, '&quot;') + '?v=' + Date.now() + '"><\/script>';
+    f.onload = function () {
+      try { setVer(el, cacheToVersion(f.contentWindow.CACHE)); } catch (e) {}
+      setTimeout(function () { f.remove(); }, 0);
+    };
+    document.body.appendChild(f);
+  }
+}
+
+/* lightbox */
+var lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap'), cur = null, idx = 0;
+function show() { var s = cur.shots[idx]; lbImg.src = 'shots/' + s[0] + '.webp'; lbImg.alt = s[1]; lbCap.textContent = cur.name + ' — ' + s[1] + ' (' + (idx + 1) + '/' + cur.shots.length + ')'; }
+function openLb(a, i) { cur = a; idx = i; show(); if (lb.showModal) lb.showModal(); else lb.setAttribute('open', ''); }
+function step(d) { idx = (idx + d + cur.shots.length) % cur.shots.length; show(); }
+lb.querySelector('.x').onclick = function () { lb.close(); };
+lb.querySelector('.prev').onclick = function (e) { e.stopPropagation(); step(-1); };
+lb.querySelector('.next').onclick = function (e) { e.stopPropagation(); step(1); };
+lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lb')) lb.close(); });
+document.addEventListener('keydown', function (e) { if (!lb.open) return; if (e.key === 'ArrowRight') step(1); if (e.key === 'ArrowLeft') step(-1); });
+var tx = null;
+lb.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; }, { passive: true });
+lb.addEventListener('touchend', function (e) { if (tx == null) return; var dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1); tx = null; });
+</script>
+</body>
+</html>
