@@ -7,7 +7,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>Rainwater Games — free games &amp; board game tools</title>
-<meta name="description" content="Free phone games by Jeff Rainwater: Bridge Blitz (alpha), Neon Gearstorm (alpha), Unicorn Flap-tastic! (alpha), plus board game score trackers. No app store needed: play in your browser, one-tap install to your home screen, works offline.">
+<meta name="description" content="Free phone games by Jeff Rainwater: Bridge Blitz (alpha), Neon Gearstorm (alpha), Unicorn Flap-tastic! (beta), plus board game score trackers. No app store needed: play in your browser, one-tap install to your home screen, works offline.">
 <meta name="theme-color" content="#070a16">
 <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="icons/favicon-192.png" sizes="192x192" type="image/png">
@@ -15,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rainwater Games">
 <meta property="og:title" content="Rainwater Games — free games &amp; board game tools">
-<meta property="og:description" content="Bridge Blitz (alpha), Neon Gearstorm (alpha) and Unicorn Flap-tastic! (alpha), plus score trackers for Flip 7 and Twilight Imperium 4. Free, no app store, works offline.">
+<meta property="og:description" content="Bridge Blitz (alpha), Neon Gearstorm (alpha) and Unicorn Flap-tastic! (beta), plus score trackers for Flip 7 and Twilight Imperium 4. Free, no app store, works offline.">
 <meta property="og:url" content="https://rainwatergames.github.io/">
 <meta property="og:image" content="https://rainwatergames.github.io/shots/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -51,6 +51,7 @@ main{padding-bottom:30px}
 .meta{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin-top:5px;font-size:.8rem;color:var(--mut)}
 .badge{font-size:.72rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:7px;background:linear-gradient(90deg,#f97316,#ef4444);color:#fff;box-shadow:0 0 14px -2px #f9731699}
 .badge.alpha{background:linear-gradient(90deg,#d946ef,#8b5cf6);box-shadow:0 0 14px -2px #d946ef99}
+.badge.beta{background:linear-gradient(90deg,#ff4fd8,#ff9f1c);box-shadow:0 0 14px -2px #ff4fd899}
 .bnote{color:#dbe2ff;font-weight:600}
 .app.uf .strip img{background:#ffd6f3}
 /* one-tap download buttons */
@@ -155,10 +156,10 @@ var APPS = [
     desc: 'A neon steampunk shoot-\'em-up for your phone. Drag to fly your fighter through glowing bullet storms, power up your weapons, and drop screen-clearing bombs when things get hairy.\n\nBlast through 2 stages, the Brass Nebula and the Iron Foundry, each ending in a huge multi-part boss: the Clockwork Colossus and the Inferno Drill Engine.\n\nSpend salvage in the Hangar on permanent upgrades like Overdrive Core, Option Pods and Homing Missiles, all to a pounding synth-metal soundtrack. Early alpha: more stages are coming.',
     chips: ['Shoot-\'em-up', '2 stages', 'Huge bosses', 'Hangar upgrades', 'Bombs', 'Synth-metal music'],
     shots: [['ng-stage1', 'Stage 1: the Brass Nebula'], ['ng-boss1', 'Clockwork Colossus boss: break the parts'], ['ng-stage2', 'Stage 2: the Iron Foundry'], ['ng-boss2', 'Inferno Drill Engine boss']] },
-  { id: 'uf', name: 'Unicorn Flap-tastic!', url: UNICORN_URL, icon: 'icons/unicorn-flaptastic.png', badge: 'ALPHA', badgeClass: 'alpha', badgeNote: 'Alpha testing', game: true,
-    version: 'v0.2', bytes: 207401, cta: 'Play',
-    desc: 'An over-the-top silly, psychedelic rainbow unicorn flapping game. Tap anywhere to flap your unicorn through rainbow pillars, grab gems and shinies, and trigger a RAINBOW FRENZY.\n\nExpect the unexpected: tactical rainbow deploys, upside-down worlds, weirdos, rainbow nukes and plenty of rude noises. Very early alpha, very silly.',
-    chips: ['One-tap flapping', 'Rainbow Frenzy', 'Psychedelic chaos', 'Over-the-top silly'],
+  { id: 'uf', name: 'Unicorn Flap-tastic!', url: UNICORN_URL, icon: 'icons/unicorn-flaptastic.png', badge: 'BETA', badgeClass: 'beta', badgeNote: 'Beta testing', game: true,
+    version: 'v1.2.0', bytes: 306088, cta: 'Play',
+    desc: 'An over-the-top silly, psychedelic rainbow unicorn flapping game. Tap anywhere to flap your unicorn through rainbow pillars, grab gems and shinies, and trigger a RAINBOW FRENZY.\n\nExpect the unexpected: tactical rainbow deploys, upside-down worlds, weirdos, rainbow nukes and plenty of rude noises.\n\nPick a run mode (Disco Night, Tiny Unicorn, Gravity Flip, Gold Rush, Chaos, or the Daily mode), fly through changing worlds from Candy Land to Chrome City with a boss at every world change, and level up your unicorn with missions and unlockable skins. Now in beta, still very silly.',
+    chips: ['One-tap flapping', '6 run modes + Daily', 'Changing worlds & bosses', 'Missions & skins', 'Rainbow Frenzy', 'Over-the-top silly'],
     shots: [['uf-title', 'Title screen'], ['uf-nuke', 'Tactical rainbow deploy!'], ['uf-weirdos', 'What the...'], ['uf-upside', 'Upside-down world']] },
   { id: 'f7', name: 'Flip 7 Score Tracker', url: 'flip7-score/', icon: 'icons/flip7.png', version: 'v1.0',
     bytes: 211703, cta: 'Open',
