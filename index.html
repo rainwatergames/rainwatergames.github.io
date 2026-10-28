@@ -44,13 +44,14 @@ main{padding-bottom:30px}
 .apps{display:grid;gap:22px}
 .app{position:relative;background:linear-gradient(180deg,#141a33,#0d1124);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 20px 60px -30px #000}
 .app:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--a1),var(--a2))}
-.app.bb{--a1:#38bdf8;--a2:#f97316}.app.ng{--a1:#22d3ee;--a2:#d946ef}.app.uf{--a1:#f472b6;--a2:#facc15}.app.f7{--a1:#facc15;--a2:#fb7185}.app.ti{--a1:#a78bfa;--a2:#22d3ee}
+.app.bb{--a1:#38bdf8;--a2:#f97316}.app.ng{--a1:#22d3ee;--a2:#d946ef}.app.uf{--a1:#f472b6;--a2:#facc15}.app.f7{--a1:#facc15;--a2:#fb7185}.app.ti{--a1:#a78bfa;--a2:#22d3ee}.app.ft{--a1:#ef4444;--a2:#a855f7}.app.fa{--a1:#38bdf8;--a2:#facc15}.app.mf{--a1:#facc15;--a2:#ef4444}
 .head{display:flex;gap:14px;align-items:center;padding:20px 18px 6px}
 .head img{width:60px;height:60px;border-radius:16px;flex:none;box-shadow:0 6px 20px -6px var(--a1)}
 .head h2{margin:0;font-size:1.4rem;line-height:1.15;font-weight:800}
 .meta{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin-top:5px;font-size:.8rem;color:var(--mut)}
 .badge{font-size:.72rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:7px;background:linear-gradient(90deg,#f97316,#ef4444);color:#fff;box-shadow:0 0 14px -2px #f9731699}
 .badge.alpha{background:linear-gradient(90deg,#d946ef,#8b5cf6);box-shadow:0 0 14px -2px #d946ef99}
+.badge.dev{background:linear-gradient(90deg,#0ea5e9,#22c55e);box-shadow:0 0 14px -2px #0ea5e999}
 .badge.beta{background:linear-gradient(90deg,#ff4fd8,#ff9f1c);box-shadow:0 0 14px -2px #ff4fd899}
 .bnote{color:#dbe2ff;font-weight:600}
 .app.uf .strip img{background:#ffd6f3}
@@ -143,12 +144,14 @@ var BRIDGE_BLITZ_URL = 'https://rainwatergames.github.io/bridge-blitz/';
 var NEON_GEARSTORM_URL = 'https://rainwatergames.github.io/neon-gearstorm/';
 var UNICORN_URL = 'https://rainwatergames.github.io/unicorn-flaptastic/';
 var NIX_URL = 'https://rainwatergames.github.io/nix-the-cat/';
+var FAYGO_URL = 'https://rainwatergames.github.io/faygo-tapper/';
+var FINAL_ASSEMBLY_URL = 'https://rainwatergames.github.io/final-assembly/';
 
 /* Sizes = total bytes of each app's deployed files (excluding screenshots/.git), measured Oct 27, 2026. */
 var APPS = [
-  { id: 'bb', name: 'Bridge Blitz', url: BRIDGE_BLITZ_URL, icon: 'icons/bridge-blitz.png', badge: 'ALPHA', badgeClass: 'alpha', badgeNote: 'Alpha testing', game: true,
-    version: 'v5.9.0', bytes: 1241472, cta: 'Play',
-    desc: 'A 3D crowd-runner shooter built for your phone. Steer your squad with one thumb, pick the right gates to grow your army, and blast through zombie hordes on the way to a giant boss at the end of every level.\n\nFight 13 different bosses across collapsing bridges, a dense jungle, an ancient temple and a volcanic Magma Chamber, including the Kraken, a giant Anaconda, a Silverback, the Jade Colossus and the Lava Golem. Each boss has its own attacks to dodge, from lightning strikes to tail swipes.\n\nEarn coins every run and spend them in the Armory on permanent upgrades like squad size, fire rate and damage, plus new weapons. Recruit allies along the way: snipers, medics, a War Elephant, and a frozen giant you can break free to smash through the horde.\n\nUnlock 40 achievements that each pay out coins, from your first boss kill to a flawless fight. Stuck on a level? Every loss earns coins toward a Skip. Beat all 13 levels and the game loops harder, and your squad changes color each time through so everyone can see how far you have made it.\n\nNew: the lava-filled Magma Chamber is in, with the Lava Golem boss, now restyled as a glowing crimson castle, and every level has its own music. Coming next: bonus coin stages and many more upgrades.',
+  { id: 'bb', name: 'Bridge Blitz', url: BRIDGE_BLITZ_URL, icon: 'icons/bridge-blitz.png', badge: 'BETA', badgeClass: 'beta', badgeNote: 'Beta testing', game: true,
+    version: 'v5.10.2', bytes: 1258254, cta: 'Play',
+    desc: 'A 3D crowd-runner shooter built for your phone. Steer your squad with one thumb, pick the right gates to grow your army, and blast through zombie hordes on the way to a giant boss at the end of every level.\n\nFight 13 different bosses across collapsing bridges, a dense jungle, an ancient temple and a volcanic Magma Chamber, including the Kraken, a giant Anaconda, a Silverback, the Jade Colossus and the Lava Golem. Each boss has its own attacks to dodge, from lightning strikes to tail swipes.\n\nEarn coins every run and spend them in the Armory on permanent upgrades like squad size, fire rate and damage, plus new weapons. Recruit allies along the way: snipers, medics, a War Elephant, and a frozen giant you can break free to smash through the horde.\n\nUnlock 40 achievements that each pay out coins, from your first boss kill to a flawless fight. Stuck on a level? Every loss earns coins toward a Skip. Beat all 13 levels and the game loops harder, and your squad changes color each time through so everyone can see how far you have made it.\n\nNew: the lava-filled Magma Chamber is in, with the Lava Golem boss, now restyled as a glowing crimson castle, and every level has its own music. Also new: bonus coin stages (Armored Truck, Piñata Jungle and Gold Rush) with their own achievements.',
     chips: ['3D action', 'One-thumb controls', '13 bosses', '40 achievements', 'Armory upgrades', 'Recruit allies', 'Bridge · Jungle · Temple · Magma'],
     shots: [['bridge-blitz-kraken', 'Kraken boss on the bridge'], ['bridge-blitz-gates', 'Pick the right gate to grow your squad'],
             ['bridge-blitz-anaconda', 'Anaconda boss in the jungle'], ['bridge-blitz-jade-colossus', 'The Jade Colossus in the temple']] },
@@ -162,11 +165,26 @@ var APPS = [
     desc: 'An over-the-top silly, psychedelic rainbow unicorn flapping game. Tap anywhere to flap your unicorn through rainbow pillars, grab gems and shinies, and trigger a RAINBOW FRENZY.\n\nExpect the unexpected: tactical rainbow deploys, upside-down worlds, weirdos, rainbow nukes and plenty of rude noises.\n\nPick a run mode (Disco Night, Tiny Unicorn, Gravity Flip, Gold Rush, Chaos, or the Daily mode), fly through changing worlds from Candy Land to Chrome City with a boss at every world change, and level up your unicorn with missions and unlockable skins. Now in beta, still very silly.',
     chips: ['One-tap flapping', '6 run modes + Daily', 'Changing worlds & bosses', 'Missions & skins', 'Rainbow Frenzy', 'Over-the-top silly'],
     shots: [['uf-title', 'Title screen'], ['uf-nuke', 'Tactical rainbow deploy!'], ['uf-weirdos', 'What the...'], ['uf-upside', 'Upside-down world']] },
-  { id: 'nx', name: 'Nix the Cat', url: NIX_URL, icon: 'icons/nix-the-cat.png', badge: 'ALPHA', badgeClass: 'alpha', badgeNote: 'Alpha testing', game: true,
-    version: 'v0.6', bytes: 16887693, cta: 'Play',
-    desc: 'A rhythm game starring Nix, a very cool black cat in a NIX snapback. Swat snacks, catch yarn and chase laser dots right on the beat with left and right paws, and nail PURRRFECT hits to light up the city.\n\nGroove through 9 original songs: lo-fi, funk, EDM, drum & bass, punk, salsa, cyberpunk synthwave (Nix wears a VR headset!), arcade rock and laid-back reggae. Play on Easy, Normal or Hard, answer Nix\'s meows in call-and-response breaks, and hit FEVER mode.\n\nChase S ranks and full combos, put your name on each song\'s high score table, and unlock caps, hoodies and shades for Nix. Early alpha: more songs on the way.',
+  { id: 'nx', name: 'Nix the Cat', url: NIX_URL, icon: 'icons/nix-the-cat.png', badge: 'BETA', badgeClass: 'beta', badgeNote: 'Beta testing', game: true,
+    version: 'v0.6.1', bytes: 16596830, cta: 'Play',
+    desc: 'A rhythm game starring Nix, a very cool black cat in a NIX snapback. Swat snacks, catch yarn and chase laser dots right on the beat with left and right paws, and nail PURRRFECT hits to light up the city.\n\nGroove through 9 original songs: lo-fi, funk, EDM, drum & bass, punk, salsa, cyberpunk synthwave (Nix wears a VR headset!), arcade rock and laid-back reggae. Play on Easy, Normal or Hard, answer Nix\'s meows in call-and-response breaks, and hit FEVER mode.\n\nChase S ranks and full combos, put your name on each song\'s high score table, and unlock caps, hoodies and shades for Nix. Now in beta: more songs on the way.',
     chips: ['Rhythm game', '9 original songs', 'Easy · Normal · Hard', 'High scores', 'Fever mode', 'Unlockable outfits'],
     shots: [['nix-select', 'Pick a track'], ['nix-vr', 'VR Showdown: Nix in a VR headset'], ['nix-pinball', 'Pinball GOAT in fever mode'], ['nix-reggae', "Streamers Be Streamin' (reggae)"]] },
+  { id: 'ft', name: 'Faygo Tapper', url: FAYGO_URL, icon: 'icons/faygo-tapper.png', badge: 'ALPHA', badgeClass: 'alpha', badgeNote: 'Alpha testing', game: true,
+    version: 'v0.3', bytes: 147933, cta: 'Play',
+    desc: 'A Tapper-style arcade bar game. Run up and down the bars, slide cold pop to a rowdy crowd of face-painted fans before they reach the end, and catch the empties before they smash.\n\nStep between 4 bars, push customers back, and keep it steady: you only get 3 lives. Every wave gets faster and the crowd gets wilder. Early alpha. Fan game, not affiliated with Faygo.',
+    chips: ['Arcade', 'Tapper-style', '4 bars', '3 lives', 'Rowdy crowd', 'High scores'],
+    shots: [['faygo-gameplay', 'Slide pop down the bars'], ['faygo-crowd', 'Meet the crowd'], ['faygo-brooklyn', 'Keep them from reaching the end'], ['faygo-gameover', 'Game over: save your high score']] },
+  { id: 'fa', name: 'Final Assembly', url: FINAL_ASSEMBLY_URL, icon: 'icons/final-assembly.png', badge: 'ALPHA', badgeClass: 'alpha', badgeNote: 'Alpha testing', game: true,
+    version: 'v0.3.0', bytes: 153851, cta: 'Play',
+    desc: 'A solo dice worker-placement puzzle set in a jetliner factory. Roll your crew, place them on the assembly line, and build jets: fuselage, wings, tail, gear, engines and cockpit.\n\nHit your weekly quota while the manager, union breaks and safety stand-ups keep things interesting. Pick a scenario and difficulty, earn stickers, and see how many jets you can ship. Early alpha.',
+    chips: ['Puzzle', 'Dice placement', 'Solo', 'Build jetliners', 'Scenarios', 'Stickers'],
+    shots: [['fa-title', 'Roll your crew. Build jets. Ship them on time.'], ['fa-rolling', 'Place your dice on the line'], ['fa-result', 'Quota met!']] },
+  { id: 'mf', name: "Mikey J's Minifig Playground", url: '', icon: 'icons/minifig-playground.png', badge: 'IN DEVELOPMENT', badgeClass: 'dev', badgeNote: 'Coming soon', dev: true,
+    version: '', bytes: 0, cta: '',
+    desc: 'A 3D minifig creator. Mix and match hundreds of parts (hats, hair, faces, outfits, jobs gear and props) to build your own crew of figures, name them, and show them off in a retro arcade.\n\nStill in development: not playable yet.',
+    chips: ['3D creator', 'Hundreds of parts', 'Name your figures', 'Retro arcade mode'],
+    shots: [['mf-builder', 'Build a minifig'], ['mf-jobs', 'Jobs parts'], ['mf-arcade', 'Show off your crew in the arcade'], ['mf-pirate', 'Captain Mikey J']] },
   { id: 'f7', name: 'Flip 7 Score Tracker', url: 'flip7-score/', icon: 'icons/flip7.png', version: 'v1.0',
     bytes: 211703, cta: 'Open',
     desc: 'A companion app for the Flip 7 card game, made to use right at the table while you play the real cards. Skip the pencil, paper and mental math: tap the cards each player flipped and it does all the math for you, including x2 cards, + bonus cards, busts and the 15-point Flip 7 bonus.\n\nIt keeps a running total and round history for every player and tracks the race to 200, so nobody has to add up scores or argue about the numbers. More playing, less counting.',
@@ -208,10 +226,10 @@ APPS.forEach(function (a) {
     }).join('') + '</div>' +
     '<div class="hint">Swipe for more · tap to enlarge</div>' +
     '<div class="body">' + a.desc.split('\n\n').map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('') + '<ul class="chips">' + a.chips.map(function (c) { return '<li>' + esc(c) + '</li>'; }).join('') + '</ul>' +
-      '<div class="facts"><div class="fact"><b>' + fmtSize(a.bytes) + '</b><span>Download</span></div>' +
+      (a.dev ? '</div>' : '<div class="facts"><div class="fact"><b>' + fmtSize(a.bytes) + '</b><span>Download</span></div>' +
       '<div class="fact"><b>✓</b><span>Works offline</span></div><div class="fact"><b>Free</b><span>No app store</span></div></div>' +
       '<a class="play' + (a.game ? ' web' : '') + '" href="' + esc(a.url) + '">' + esc(a.game ? 'Play in browser' : a.cta) +
-      ' <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></a></div>';
+      ' <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></a></div>');
   root.appendChild(el);
   el.querySelectorAll('.strip button').forEach(function (b) { b.onclick = function () { openLb(a, +b.dataset.i); }; });
   if (a.game) readVersion(a, el);
