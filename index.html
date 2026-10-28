@@ -142,6 +142,7 @@ dialog::backdrop{background:#000d;-webkit-backdrop-filter:blur(6px);backdrop-fil
 var BRIDGE_BLITZ_URL = 'https://rainwatergames.github.io/bridge-blitz/';
 var NEON_GEARSTORM_URL = 'https://rainwatergames.github.io/neon-gearstorm/';
 var UNICORN_URL = 'https://rainwatergames.github.io/unicorn-flaptastic/';
+var NIX_URL = 'https://rainwatergames.github.io/nix-the-cat/';
 
 /* Sizes = total bytes of each app's deployed files (excluding screenshots/.git), measured Oct 27, 2026. */
 var APPS = [
@@ -161,6 +162,11 @@ var APPS = [
     desc: 'An over-the-top silly, psychedelic rainbow unicorn flapping game. Tap anywhere to flap your unicorn through rainbow pillars, grab gems and shinies, and trigger a RAINBOW FRENZY.\n\nExpect the unexpected: tactical rainbow deploys, upside-down worlds, weirdos, rainbow nukes and plenty of rude noises.\n\nPick a run mode (Disco Night, Tiny Unicorn, Gravity Flip, Gold Rush, Chaos, or the Daily mode), fly through changing worlds from Candy Land to Chrome City with a boss at every world change, and level up your unicorn with missions and unlockable skins. Now in beta, still very silly.',
     chips: ['One-tap flapping', '6 run modes + Daily', 'Changing worlds & bosses', 'Missions & skins', 'Rainbow Frenzy', 'Over-the-top silly'],
     shots: [['uf-title', 'Title screen'], ['uf-nuke', 'Tactical rainbow deploy!'], ['uf-weirdos', 'What the...'], ['uf-upside', 'Upside-down world']] },
+  { id: 'nx', name: 'Nix the Cat', url: NIX_URL, icon: 'icons/nix-the-cat.png', badge: 'ALPHA', badgeClass: 'alpha', badgeNote: 'Alpha testing', game: true,
+    version: 'v0.6', bytes: 16887693, cta: 'Play',
+    desc: 'A rhythm game starring Nix, a very cool black cat in a NIX snapback. Swat snacks, catch yarn and chase laser dots right on the beat with left and right paws, and nail PURRRFECT hits to light up the city.\n\nGroove through 9 original songs: lo-fi, funk, EDM, drum & bass, punk, salsa, cyberpunk synthwave (Nix wears a VR headset!), arcade rock and laid-back reggae. Play on Easy, Normal or Hard, answer Nix\'s meows in call-and-response breaks, and hit FEVER mode.\n\nChase S ranks and full combos, put your name on each song\'s high score table, and unlock caps, hoodies and shades for Nix. Early alpha: more songs on the way.',
+    chips: ['Rhythm game', '9 original songs', 'Easy · Normal · Hard', 'High scores', 'Fever mode', 'Unlockable outfits'],
+    shots: [['nix-select', 'Pick a track'], ['nix-vr', 'VR Showdown: Nix in a VR headset'], ['nix-pinball', 'Pinball GOAT in fever mode'], ['nix-reggae', "Streamers Be Streamin' (reggae)"]] },
   { id: 'f7', name: 'Flip 7 Score Tracker', url: 'flip7-score/', icon: 'icons/flip7.png', version: 'v1.0',
     bytes: 211703, cta: 'Open',
     desc: 'A companion app for the Flip 7 card game, made to use right at the table while you play the real cards. Skip the pencil, paper and mental math: tap the cards each player flipped and it does all the math for you, including x2 cards, + bonus cards, busts and the 15-point Flip 7 bonus.\n\nIt keeps a running total and round history for every player and tracks the race to 200, so nobody has to add up scores or argue about the numbers. More playing, less counting.',
