@@ -93,10 +93,30 @@ dialog::backdrop{background:#000d;-webkit-backdrop-filter:blur(6px);backdrop-fil
 .lb button{position:absolute;border:0;background:#ffffff1f;color:#fff;width:46px;height:46px;border-radius:50%;font-size:1.5rem;cursor:pointer}
 .lb .x{top:10px;right:10px}.lb .prev{left:8px;top:50%}.lb .next{right:8px;top:50%}
 .lb .cap{position:absolute;bottom:6px;left:0;right:0;text-align:center;font-size:.85rem;color:#cdd4f0}
+/* compact rows */
+.apps{gap:12px}
+.app.hm{--a1:#5eead4;--a2:#0ea5e9}
+.row{display:flex;align-items:center;gap:12px;padding:14px 12px 12px 14px}
+.row img{width:52px;height:52px;border-radius:14px;flex:none;box-shadow:0 6px 20px -6px var(--a1)}
+.row .tx{flex:1;min-width:0}
+.row h2{margin:0;font-size:1.08rem;line-height:1.2;font-weight:800;overflow-wrap:anywhere}
+.row .meta{margin-top:3px;gap:4px 8px;font-size:.74rem}.row .badge{font-size:.62rem;padding:2px 7px}
+.row .tl{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:4px 0 0;font-size:.8rem;line-height:1.3;color:#b8c1e6}
+.qp{flex:none;display:inline-flex;align-items:center;gap:4px;min-height:40px;padding:0 13px;border-radius:12px;font-weight:900;font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;color:#0b0f1e;background:linear-gradient(90deg,var(--a1),var(--a2))}
+.qp svg{width:14px;height:14px}.qp.soon{background:#ffffff12;color:#9fb0e0;border:1px solid var(--line);font-size:.66rem;padding:0 8px}
+.chev{flex:none;width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:#ffffff0a;color:#dbe2ff;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
+.chev svg{width:20px;height:20px;transition:transform .3s ease}
+.chev[aria-expanded=true] svg{transform:rotate(180deg)}
+.chev:focus-visible,.qp:focus-visible{outline:3px solid var(--a1);outline-offset:2px}
+.more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease,visibility .35s;visibility:hidden}
+.app.open .more{grid-template-rows:1fr;visibility:visible}
+.more>.in{overflow:hidden;min-height:0;min-width:0;border-top:1px solid var(--line)}
+@media (max-width:380px){.row .tl{display:none}}
+@media (min-width:760px){.row{padding:18px 22px}.row img{width:60px;height:60px}.row h2{font-size:1.3rem}.more .in{padding:0 8px}}
 @media (min-width:760px){
   header.hero{padding:90px 0 60px}
   .apps{grid-template-columns:1fr}
-  .app{display:grid;grid-template-columns:1.25fr 1fr;grid-template-areas:"head head" "dl dl" "strip body" "hint body"}
+  .more>.in{display:grid;grid-template-columns:1.25fr 1fr;grid-template-areas:"dl dl" "strip body" "hint body"}
   .dlwrap{grid-area:dl;padding:14px 26px 0}.dls{grid-template-columns:repeat(3,1fr)}.dl.mine{order:0}
   .head{grid-area:head;padding:24px 26px 4px}.strip{grid-area:strip;padding:16px 26px 8px}.hint{grid-area:hint;padding:0 26px 20px}.body{grid-area:body;padding:16px 26px 24px;align-self:center}
   .strip button{width:31%}
@@ -145,52 +165,58 @@ var NEON_GEARSTORM_URL = 'https://rainwatergames.github.io/neon-gearstorm/';
 var UNICORN_URL = 'https://rainwatergames.github.io/unicorn-flaptastic/';
 var NIX_URL = 'https://rainwatergames.github.io/nix-the-cat/';
 var FAYGO_URL = 'https://rainwatergames.github.io/faygo-tapper/';
+var HANGMAN_URL = 'https://rainwatergames.github.io/hangman/';
 var FINAL_ASSEMBLY_URL = 'https://rainwatergames.github.io/final-assembly/';
 
 /* Sizes = total bytes of each app's deployed files (excluding screenshots/.git), measured Oct 27, 2026. */
 var APPS = [
-  { id: 'bb', name: 'Bridge Blitz', url: BRIDGE_BLITZ_URL, icon: 'icons/bridge-blitz.png', badge: 'BETA', badgeClass: 'beta', badgeNote: 'Beta testing', game: true,
+  { id: 'bb', tagline: '3D crowd-runner shooter: grow your squad and smash 13 giant bosses.', name: 'Bridge Blitz', url: BRIDGE_BLITZ_URL, icon: 'icons/bridge-blitz.png', badge: 'BETA', badgeClass: 'beta', badgeNote: 'Beta testing', game: true,
     version: 'v5.10.2', bytes: 1258254, cta: 'Play',
     desc: 'A 3D crowd-runner shooter built for your phone. Steer your squad with one thumb, pick the right gates to grow your army, and blast through zombie hordes on the way to a giant boss at the end of every level.\n\nFight 13 different bosses across collapsing bridges, a dense jungle, an ancient temple and a volcanic Magma Chamber, including the Kraken, a giant Anaconda, a Silverback, the Jade Colossus and the Lava Golem. Each boss has its own attacks to dodge, from lightning strikes to tail swipes.\n\nEarn coins every run and spend them in the Armory on permanent upgrades like squad size, fire rate and damage, plus new weapons. Recruit allies along the way: snipers, medics, a War Elephant, and a frozen giant you can break free to smash through the horde.\n\nUnlock 40 achievements that each pay out coins, from your first boss kill to a flawless fight. Stuck on a level? Every loss earns coins toward a Skip. Beat all 13 levels and the game loops harder, and your squad changes color each time through so everyone can see how far you have made it.\n\nNew: the lava-filled Magma Chamber is in, with the Lava Golem boss, now restyled as a glowing crimson castle, and every level has its own music. Also new: bonus coin stages (Armored Truck, Piñata Jungle and Gold Rush) with their own achievements.',
     chips: ['3D action', 'One-thumb controls', '13 bosses', '40 achievements', 'Armory upgrades', 'Recruit allies', 'Bridge · Jungle · Temple · Magma'],
     shots: [['bridge-blitz-kraken', 'Kraken boss on the bridge'], ['bridge-blitz-gates', 'Pick the right gate to grow your squad'],
             ['bridge-blitz-anaconda', 'Anaconda boss in the jungle'], ['bridge-blitz-jade-colossus', 'The Jade Colossus in the temple']] },
-  { id: 'ng', name: 'Neon Gearstorm', url: NEON_GEARSTORM_URL, icon: 'icons/neon-gearstorm.png', badge: 'ALPHA', badgeClass: 'alpha', badgeNote: 'Alpha testing', game: true,
+  { id: 'ng', tagline: 'Neon steampunk shoot-\'em-up with huge multi-part bosses.', name: 'Neon Gearstorm', url: NEON_GEARSTORM_URL, icon: 'icons/neon-gearstorm.png', badge: 'ALPHA', badgeClass: 'alpha', badgeNote: 'Alpha testing', game: true,
     version: 'v1.3.2', bytes: 180835, cta: 'Play',
     desc: 'A neon steampunk shoot-\'em-up for your phone. Drag to fly your fighter through glowing bullet storms, power up your weapons, and drop screen-clearing bombs when things get hairy.\n\nBlast through 4 stages, the Brass Nebula, the Iron Foundry, the Xeno Hive and the Frozen Citadel, each ending in a huge multi-part boss: the Clockwork Colossus, the Inferno Drill Engine, the Hive Queen and the Crimson Warden.\n\nSpend salvage in the Hangar on permanent upgrades like Overdrive Core, Option Pods and Homing Missiles, all to a pounding synth-metal soundtrack. Early alpha: more stages are coming.',
     chips: ['Shoot-\'em-up', '4 stages', 'Huge bosses', 'Hangar upgrades', 'Bombs', 'Synth-metal music'],
     shots: [['ng-stage3', 'Stage 3: the Xeno Hive'], ['ng-boss3', 'Hive Queen boss: dodge the claw swipe'], ['ng-stage4', 'Stage 4: the Frozen Citadel'], ['ng-boss4', 'Crimson Warden boss: stand in a green lane']] },
-  { id: 'uf', name: 'Unicorn Flap-tastic!', url: UNICORN_URL, icon: 'icons/unicorn-flaptastic.png', badge: 'BETA', badgeClass: 'beta', badgeNote: 'Beta testing', game: true,
+  { id: 'uf', tagline: 'Psychedelic, very silly rainbow unicorn flapping.', name: 'Unicorn Flap-tastic!', url: UNICORN_URL, icon: 'icons/unicorn-flaptastic.png', badge: 'BETA', badgeClass: 'beta', badgeNote: 'Beta testing', game: true,
     version: 'v1.3.0', bytes: 306088, cta: 'Play',
     desc: 'An over-the-top silly, psychedelic rainbow unicorn flapping game. Tap anywhere to flap your unicorn through rainbow pillars, grab gems and shinies, and trigger a RAINBOW FRENZY.\n\nExpect the unexpected: tactical rainbow deploys, upside-down worlds, weirdos, rainbow nukes and plenty of rude noises.\n\nPick a run mode (Disco Night, Tiny Unicorn, Gravity Flip, Gold Rush, Chaos, or the Daily mode), fly through changing worlds from Candy Land to Chrome City with a boss at every world change, and level up your unicorn with missions and unlockable skins. Now in beta, still very silly.',
     chips: ['One-tap flapping', '6 run modes + Daily', 'Changing worlds & bosses', 'Missions & skins', 'Rainbow Frenzy', 'Over-the-top silly'],
     shots: [['uf-title', 'Title screen'], ['uf-nuke', 'Tactical rainbow deploy!'], ['uf-weirdos', 'What the...'], ['uf-upside', 'Upside-down world']] },
-  { id: 'nx', name: 'Nix the Cat', url: NIX_URL, icon: 'icons/nix-the-cat.png', badge: 'BETA', badgeClass: 'beta', badgeNote: 'Beta testing', game: true,
+  { id: 'nx', tagline: 'Rhythm game starring Nix the cat: 9 original songs.', name: 'Nix the Cat', url: NIX_URL, icon: 'icons/nix-the-cat.png', badge: 'BETA', badgeClass: 'beta', badgeNote: 'Beta testing', game: true,
     version: 'v0.6.1', bytes: 16596830, cta: 'Play',
     desc: 'A rhythm game starring Nix, a very cool black cat in a NIX snapback. Swat snacks, catch yarn and chase laser dots right on the beat with left and right paws, and nail PURRRFECT hits to light up the city.\n\nGroove through 9 original songs: lo-fi, funk, EDM, drum & bass, punk, salsa, cyberpunk synthwave (Nix wears a VR headset!), arcade rock and laid-back reggae. Play on Easy, Normal or Hard, answer Nix\'s meows in call-and-response breaks, and hit FEVER mode.\n\nChase S ranks and full combos, put your name on each song\'s high score table, and unlock caps, hoodies and shades for Nix. Now in beta: more songs on the way.',
     chips: ['Rhythm game', '9 original songs', 'Easy · Normal · Hard', 'High scores', 'Fever mode', 'Unlockable outfits'],
     shots: [['nix-select', 'Pick a track'], ['nix-vr', 'VR Showdown: Nix in a VR headset'], ['nix-pinball', 'Pinball GOAT in fever mode'], ['nix-reggae', "Streamers Be Streamin' (reggae)"]] },
-  { id: 'ft', name: 'Faygo Tapper', url: FAYGO_URL, icon: 'icons/faygo-tapper.png', badge: 'ALPHA', badgeClass: 'alpha', badgeNote: 'Alpha testing', game: true,
+  { id: 'ft', tagline: 'Tapper-style arcade bar game: slide pop, catch empties.', name: 'Faygo Tapper', url: FAYGO_URL, icon: 'icons/faygo-tapper.png', badge: 'ALPHA', badgeClass: 'alpha', badgeNote: 'Alpha testing', game: true,
     version: 'v0.3', bytes: 147933, cta: 'Play',
     desc: 'A Tapper-style arcade bar game. Run up and down the bars, slide cold pop to a rowdy crowd of face-painted fans before they reach the end, and catch the empties before they smash.\n\nStep between 4 bars, push customers back, and keep it steady: you only get 3 lives. Every wave gets faster and the crowd gets wilder. Early alpha. Fan game, not affiliated with Faygo.',
     chips: ['Arcade', 'Tapper-style', '4 bars', '3 lives', 'Rowdy crowd', 'High scores'],
     shots: [['faygo-gameplay', 'Slide pop down the bars'], ['faygo-crowd', 'Meet the crowd'], ['faygo-brooklyn', 'Keep them from reaching the end'], ['faygo-gameover', 'Game over: save your high score']] },
-  { id: 'fa', name: 'Final Assembly', url: FINAL_ASSEMBLY_URL, icon: 'icons/final-assembly.png', badge: 'ALPHA', badgeClass: 'alpha', badgeNote: 'Alpha testing', game: true,
+  { id: 'fa', tagline: 'Solo dice worker-placement puzzle: build jetliners on quota.', name: 'Final Assembly', url: FINAL_ASSEMBLY_URL, icon: 'icons/final-assembly.png', badge: 'ALPHA', badgeClass: 'alpha', badgeNote: 'Alpha testing', game: true,
     version: 'v0.3.0', bytes: 153851, cta: 'Play',
     desc: 'A solo dice worker-placement puzzle set in a jetliner factory. Roll your crew, place them on the assembly line, and build jets: fuselage, wings, tail, gear, engines and cockpit.\n\nHit your weekly quota while the manager, union breaks and safety stand-ups keep things interesting. Pick a scenario and difficulty, earn stickers, and see how many jets you can ship. Early alpha.',
     chips: ['Puzzle', 'Dice placement', 'Solo', 'Build jetliners', 'Scenarios', 'Stickers'],
     shots: [['fa-title', 'Roll your crew. Build jets. Ship them on time.'], ['fa-rolling', 'Place your dice on the line'], ['fa-result', 'Quota met!']] },
-  { id: 'mf', name: "Mikey J's Minifig Playground", url: '', icon: 'icons/minifig-playground.png', badge: 'IN DEVELOPMENT', badgeClass: 'dev', badgeNote: 'Coming soon', dev: true,
+  { id: 'hm', tagline: 'Calm, classic word guessing with a daily win-loss leaderboard.', name: 'Hangman', url: HANGMAN_URL, icon: 'icons/hangman.svg', badge: 'ALPHA', badgeClass: 'alpha', badgeNote: 'Alpha testing', game: true,
+    version: 'v1.1', bytes: 0, cta: 'Play',
+    desc: 'Calm, classic word guessing. Pick letters, reveal the word before the drawing is finished, and keep your streak going.\n\nA daily win-loss leaderboard tracks how you are doing. Early alpha.',
+    chips: ['Word game', 'Classic hangman', 'Daily leaderboard', 'Calm'],
+    shots: [] },
+  { id: 'mf', tagline: '3D minifig creator with hundreds of parts. Coming soon.', name: "Mikey J's Minifig Playground", url: '', icon: 'icons/minifig-playground.png', badge: 'IN DEVELOPMENT', badgeClass: 'dev', badgeNote: 'Coming soon', dev: true,
     version: '', bytes: 0, cta: '',
     desc: 'A 3D minifig creator. Mix and match hundreds of parts (hats, hair, faces, outfits, jobs gear and props) to build your own crew of figures, name them, and show them off in a retro arcade.\n\nStill in development: not playable yet.',
     chips: ['3D creator', 'Hundreds of parts', 'Name your figures', 'Retro arcade mode'],
     shots: [['mf-builder', 'Build a minifig'], ['mf-jobs', 'Jobs parts'], ['mf-arcade', 'Show off your crew in the arcade'], ['mf-pirate', 'Captain Mikey J']] },
-  { id: 'f7', name: 'Flip 7 Score Tracker', url: 'flip7-score/', icon: 'icons/flip7.png', version: 'v1.0',
+  { id: 'f7', tagline: 'Table-side scorer for the Flip 7 card game.', name: 'Flip 7 Score Tracker', url: 'flip7-score/', icon: 'icons/flip7.png', version: 'v1.0',
     bytes: 211703, cta: 'Open',
     desc: 'A companion app for the Flip 7 card game, made to use right at the table while you play the real cards. Skip the pencil, paper and mental math: tap the cards each player flipped and it does all the math for you, including x2 cards, + bonus cards, busts and the 15-point Flip 7 bonus.\n\nIt keeps a running total and round history for every player and tracks the race to 200, so nobody has to add up scores or argue about the numbers. More playing, less counting.',
     chips: ['Tap cards to score', 'Busts & bonuses', 'Round history', 'Undo'],
     shots: [['flip7-round', 'Enter a hand by tapping cards'], ['flip7-scores', 'Running totals and round history'], ['flip7-leader', 'Who is closest to 200']] },
-  { id: 'ti', name: 'TI4 Galactic Score Board', url: 'ti4-score/', icon: 'icons/ti4.png', version: 'v1.0',
+  { id: 'ti', tagline: 'Shared score board for Twilight Imperium 4th Edition.', name: 'TI4 Galactic Score Board', url: 'ti4-score/', icon: 'icons/ti4.png', version: 'v1.0',
     bytes: 709786, cta: 'Open',
     desc: 'Made for playing the Twilight Imperium 4th Edition board game. Put it on a TV, tablet or phone in the middle of the table so the whole group can see the score track, public objectives and who has scored what, without walking around the table or cluttering it with extra cards and tokens.\n\nReveal public objectives, tap who scored them, track secrets and other points, and see everyone on one score track. It is a quality-of-life upgrade for those long game nights.',
     chips: ['3–8 players', 'Public objectives built in', 'Prophecy of Kings', 'Undo'],
@@ -216,20 +242,29 @@ var root = document.getElementById('apps');
 APPS.forEach(function (a) {
   var el = document.createElement('article');
   el.className = 'app ' + a.id; el.id = a.id;
+  var PLAY = ' <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+  var mid = 'more-' + a.id;
   el.innerHTML =
-    '<div class="head"><img src="' + a.icon + '" alt="" width="60" height="60"><div><h2>' + esc(a.name) + '</h2>' +
-      '<div class="meta">' + (a.badge ? '<span class="badge ' + (a.badgeClass || '') + '">' + esc(a.badge) + '</span><span class="bnote">' + esc(a.badgeNote || '') + '</span>' : '') +
-      '<span class="ver" data-ver>' + esc(a.version) + '</span><span data-upd hidden></span></div></div></div>' +
+    '<div class="row"><img src="' + a.icon + '" alt="" width="52" height="52"><div class="tx"><h2>' + esc(a.name) + '</h2>' +
+      '<div class="meta">' + (a.badge ? '<span class="badge ' + (a.badgeClass || '') + '">' + esc(a.badge) + '</span>' : '') +
+      '<span class="ver" data-ver>' + esc(a.version) + '</span><span data-upd hidden></span></div>' +
+      '<p class="tl">' + esc(a.tagline || '') + '</p></div>' +
+      (a.dev ? '<span class="qp soon">Soon</span>' : '<a class="qp" href="' + esc(a.url) + '" aria-label="' + esc(a.cta + ' ' + a.name) + '">' + esc(a.cta) + PLAY + '</a>') +
+      '<button class="chev" type="button" aria-expanded="false" aria-controls="' + mid + '" aria-label="More about ' + esc(a.name) + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></div>' +
+    '<div class="more" id="' + mid + '"><div class="in">' +
+    (a.badgeNote ? '<div class="hint" style="padding-top:12px"><span class="bnote">' + esc(a.badgeNote) + '</span></div>' : '') +
     (a.game ? '<div class="dlwrap">' + dlButtons(a) + '</div>' : '') +
-    '<div class="strip" role="list" aria-label="' + esc(a.name) + ' screenshots">' + a.shots.map(function (s, i) {
-      return '<button type="button" role="listitem" data-i="' + i + '" aria-label="Enlarge: ' + esc(s[1]) + '"><img src="shots/' + s[0] + '.webp" alt="' + esc(s[1]) + '" loading="' + (a.id === 'bb' ? 'eager' : 'lazy') + '" width="390" height="844"></button>';
+    (a.shots.length ? '<div class="strip" role="list" aria-label="' + esc(a.name) + ' screenshots">' + a.shots.map(function (s, i) {
+      return '<button type="button" role="listitem" data-i="' + i + '" aria-label="Enlarge: ' + esc(s[1]) + '"><img src="shots/' + s[0] + '.webp" alt="' + esc(s[1]) + '" loading="lazy" width="390" height="844"></button>';
     }).join('') + '</div>' +
-    '<div class="hint">Swipe for more · tap to enlarge</div>' +
+    '<div class="hint">Swipe for more · tap to enlarge</div>' : '') +
     '<div class="body">' + a.desc.split('\n\n').map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('') + '<ul class="chips">' + a.chips.map(function (c) { return '<li>' + esc(c) + '</li>'; }).join('') + '</ul>' +
-      (a.dev ? '</div>' : '<div class="facts"><div class="fact"><b>' + fmtSize(a.bytes) + '</b><span>Download</span></div>' +
+      (a.dev ? '</div>' : '<div class="facts"><div class="fact"><b>' + (a.bytes ? fmtSize(a.bytes) : 'Small') + '</b><span>Download</span></div>' +
       '<div class="fact"><b>✓</b><span>Works offline</span></div><div class="fact"><b>Free</b><span>No app store</span></div></div>' +
-      '<a class="play' + (a.game ? ' web' : '') + '" href="' + esc(a.url) + '">' + esc(a.game ? 'Play in browser' : a.cta) +
-      ' <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></a></div>');
+      '<a class="play' + (a.game ? ' web' : '') + '" href="' + esc(a.url) + '">' + esc(a.game ? 'Play in browser' : a.cta) + PLAY + '</a></div>') +
+    '</div></div>';
+  var chev = el.querySelector('.chev');
+  chev.onclick = function () { var o = el.classList.toggle('open'); chev.setAttribute('aria-expanded', o ? 'true' : 'false'); };
   root.appendChild(el);
   el.querySelectorAll('.strip button').forEach(function (b) { b.onclick = function () { openLb(a, +b.dataset.i); }; });
   if (a.game) readVersion(a, el);
