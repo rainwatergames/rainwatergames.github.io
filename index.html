@@ -97,6 +97,10 @@ dialog::backdrop{background:#000d;-webkit-backdrop-filter:blur(6px);backdrop-fil
 .sec{display:grid;gap:12px}.seclist{display:grid;gap:12px}.seclist:empty{display:none}
 .sech{margin:14px 2px 0;font-size:.78rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);display:flex;align-items:center;gap:10px}
 .sech:after{content:"";flex:1;height:1px;background:var(--line)}
+.howto{margin:4px 0 6px;border:1px solid #2a3260;border-radius:18px;background:#121733;padding:0 16px}
+.howto summary{cursor:pointer;list-style:none;padding:14px 0;font-weight:900;font-size:1rem;display:flex;justify-content:space-between;align-items:center}
+.howto summary::-webkit-details-marker{display:none}.howto summary:after{content:'\25BE';color:var(--mut)}.howto[open] summary:after{content:'\25B4'}
+.howto h4{margin:10px 0 4px;font-size:.9rem}.howto ol{margin:0 0 8px;padding-left:20px;font-size:.88rem;line-height:1.45;color:#c9d0f0}.howto p{font-size:.85rem;color:#8b95bf;margin:6px 0 14px}
 .secempty{margin:-4px 2px 0;font-size:.8rem;color:#8b95bf}
 .apps{gap:12px}
 .app.hm{--a1:#5eead4;--a2:#0ea5e9}
@@ -146,6 +150,13 @@ dialog::backdrop{background:#000d;-webkit-backdrop-filter:blur(6px);backdrop-fil
 </header>
 
 <main class="wrap">
+  <details class="howto"><summary>📲 How to install a game</summary>
+    <p>Every game is free and installs straight from your browser. No app store needed, and it works offline after that.</p>
+    <h4>🤖 Android (Chrome)</h4><ol><li>Tap <b>Play</b> on any game.</li><li>Tap the game's <b>Install</b> button, or open the <b>⋮</b> menu and choose <b>Install app</b> (or <b>Add to Home screen</b>).</li><li>Tap <b>Install</b> again to confirm. The game shows up on your home screen.</li></ol>
+    <h4>🍎 iPhone / iPad (Safari)</h4><ol><li>Open this page in <b>Safari</b> and tap <b>Play</b> on a game.</li><li>Tap the <b>Share</b> button (square with an up arrow).</li><li>Scroll down, tap <b>Add to Home Screen</b>, then <b>Add</b>.</li></ol>
+    <h4>💻 PC (Chrome or Edge)</h4><ol><li>Tap <b>Play</b> on a game.</li><li>Click the install icon at the right end of the address bar, or open the menu and choose <b>Install</b>.</li></ol>
+    <p>Updates install themselves. If a game looks out of date, close it and open it again.</p>
+  </details>
   <div class="apps" id="apps"></div>
 
 </main>
